@@ -24,7 +24,8 @@ USER arcgis
 #   -m silent         silent mode: don't pop up windows, we don't have a screen anyway
 #   -l yes            You agree to the License Agreement
 #   -a license_file   Use "license_file" to add your license. It can be a .ecp or .prvc file.
-RUN cd ~/PortalForArcGIS && ./Setup -m silent --verbose -l yes -a ~/*.prvc
+#   -d dest_dir       Default is /home/arcgis/arcgis/portal
+RUN cd ~/PortalForArcGIS && ./Setup -m silent --verbose -l yes -a ~/*.prvc -d ~
 #RUN mkdir ~/config-store ~/directories
 RUN rm -rf ~/PortalForArcGIS
 

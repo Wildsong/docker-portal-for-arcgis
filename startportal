@@ -1,0 +1,16 @@
+# Docker command to start a detached Portal
+#
+PORTAL_FQDN="portal.wildsong.biz"
+PORTAL_NAME="portal-for-server"
+
+# Stop a previous detached portal, if any.
+docker rm ${PORTAL_NAME}
+
+echo "Docker is starting Portal for Server in detached mode."
+echo "Management URL is http://${PORTAL_FQDN}:7080/arcgis/"
+
+docker run -d --name ${PORTAL_NAME} --hostname=${PORTAL_FQDN} \
+  -d -p 7080:7080 -p 7443:7443 \
+  --net arcgis-network \
+  -v `pwd`/data/content:/home/arcgis/portal/usr/arcgisportal/content \
+  geoceg/${PORTAL_NAME}

@@ -1,10 +1,11 @@
 From geoceg/ubuntu-server:latest
 LABEL maintainer="b.wilson@geo-ceg.org"
-ENV REFRESHED_AT 2017-07-07
+ENV REFRESHED_AT 2017-07-09
 
 # Port information: http://server.arcgis.com/en/portal/latest/install/windows/ports-used-by-portal-for-arcgis.htm
 EXPOSE 7080 7443
 
+# Probably don't need this for Portal
 ADD limits.conf /etc/security/limits.conf
 
 ENV HOME=/home/arcgis
